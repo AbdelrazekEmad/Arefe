@@ -1,0 +1,30 @@
+mixin mainStyle(direction, newLinks = [])
+  link(rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' )
+  if direction === "rtl" 
+    link(rel="stylesheet", href ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap."+direction+".min.css")
+    - for (var i = 0; i < newLinks.length; i++)
+      link(rel="stylesheet", href =newLinks[i])
+  else if direction === "ltr"
+    link(rel="stylesheet", href ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css")
+    - for (var i = 0; i < newLinks.length; i++)
+      link(rel="stylesheet", href =newLinks[i])
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" )
+  link(rel="stylesheet", href ="css/main-"+direction+".css")
+
+
+mixin mainScript(newScripts = [])
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js')
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js")
+  - for (var i = 0; i < newScripts.length; i++)
+    script(src= newScripts[i])
+  script(src="./js/script.js",type="module")
+
+mixin breadcrumb(linksArray)
+  nav(aria-label="breadcrumb")
+    ol.breadcrumb
+      li.breadcrumb-item #[a(href="./index.html") Home]
+      - for(var i = 0; i <= linksArray.length; i++)
+        if (i < linksArray.length - 1)
+          li.breadcrumb-item #[a(href=linksArray[i].link)=linksArray[i].name]
+        else if  (i == linksArray.length - 1)
+          li(class="breadcrumb-item" aria-current="page")= linksArray[i].name
