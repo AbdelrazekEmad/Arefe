@@ -8,15 +8,88 @@ html(lang="en" , dir="ltr")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title #{projectName} - Home
-    +mainStyle( direction , [])
+    +mainStyle(["https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css"])
   body 
     //- Start NavBar
-    include ./layout/_navbar.pug 
+    include ./layout/_header.pug 
     //- End NavBar
+
+    //- Start Hero Section
+    .hero
+      .container 
+        .hero__wrapper 
+          .hero__card
+            .hero__card__image.first.wow.wow-late.bounceInLeft #[img(src="./images/hero/img-1.webp" alt="")]
+            .hero__card__content 
+              .hero__card__icon.wow.wow-late.bounceInUp #[img(src="./images/hero/artist.webp" alt="")]
+              .hero__card__title Artist
+              .hero__card__paragraph She is interested in the artistic side and is proficient in playing the piano.
+          .hero__card
+            .hero__card__image.middle.wow.wow-late.bounceInUp #[img(src="./images/hero/img-2.webp" alt="")]
+            .hero__card__content 
+              .hero__card__icon.wow.wow-late.bounceInUp #[img(src="./images/hero/artist.webp" alt="")]
+              .hero__card__title Lecturer
+              .hero__card__paragraph She conducts numerous medical lectures.
+          .hero__card
+            .hero__card__image.last.wow.wow-late.bounceInRight #[img(src="./images/hero/img-3.webp" alt="")]
+            .hero__card__content 
+              .hero__card__icon.wow.wow-late.bounceInUp #[img(src="./images/hero/artist.webp" alt="")]
+              .hero__card__title Dentist
+              .hero__card__paragraph A dentist who specializes in all aspects of cosmetic dentistry.
+    //- End Hero Section
+
+    //- Start Before & After Section
+    section.beforeAfter-section.py-5.mt-5 
+      .container 
+        h3.beforeAfter-section__header Before & After
+        .beforeAfter
+          img(src="./images/before-after/before.webp" alt="")
+          img(src="./images/before-after/after.webp" alt="")
+        .beforeAfter.left
+          img(src="./images/before-after/before.webp" alt="")
+          img(src="./images/before-after/after.webp" alt="")
+        .beforeAfter
+          img(src="./images/before-after/before.webp" alt="")
+          img(src="./images/before-after/after.webp" alt="")
+    //- End Before & After Section  
+
+
+    //- Start Section Contact us
+    section.contact-us
+      .container.position-relative
+        .contact-us__img.wow.fadeInBottomRight #[img(src="./images/contact-us/contact-us.webp" alt="")]
+        .contact-us__info 
+          h5.wow.wow-late.bounceInLeft You can #[br] contact Dr. Arefeh
+          button.book-now.wow.wow-late.bounceInUp
+            a(href="") learn more
+    //- End Section Contact us 
+
+    //- Start Gallery Section
+    section.gallery.py-5 
+      .container 
+        h3.gallery__header Gallery
+        .row.row-cols-2.row-cols-md-3.row-cols-lg-4.mt-5.px-5
+          .col 
+            .gallery__item
+              img(src="./images/gallery/gallery-1.webp" alt="")
+              a(href="") Art&Travel
+          .col 
+            .gallery__item
+              img(src="./images/gallery/gallery-2.webp" alt="")
+              a(href="") Selebrities
+          .col 
+            .gallery__item
+              img(src="./images/gallery/gallery-3.webp" alt="")
+              a(href="") Instructional
+          .col 
+            .gallery__item
+              img(src="./images/gallery/gallery-4.webp" alt="")
+              a(href="") Work
+    //- End Gallery Section 
 
     //- Start footer
     include ./layout/_footer.pug 
     //- End footer
 
     //- Start Scripts 
-    +mainScript()
+    +mainScript(["https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js","./js/wow-init.js","./js/beforeafter.min.js", "./js/beforeafter-init.js"])

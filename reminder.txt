@@ -1,11 +1,4 @@
-
-
-
-
 //- to use imgPath method it's take path img without extension like [.png , .jpg] and main file of images only insert a sub files on it  
 //- default extension for all images is webp 
 //- example
 //- imgPath('logo/logo')
-
-//- user the next component to switch language
-// switch language start

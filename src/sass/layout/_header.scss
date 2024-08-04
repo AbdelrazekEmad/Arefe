@@ -1,0 +1,57 @@
+.header {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+
+    &__item {
+      font-size: 1em;
+      color: $white-color;
+      transition: all 0.3s ease-in-out;
+
+      &.active,
+      &:hover {
+        color: $primary-color;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    .book-now {
+      padding: 0.5em 1em;
+      border-radius: 0.5em;
+      background-color: $primary-color;
+      border: 0;
+
+      a {
+        color: $white-color;
+      }
+    }
+
+    .burger-icon {
+      display: none;
+
+      @include responsive(max, 992px) {
+        display: block;
+      }
+    }
+
+    input {
+      width: 140px;
+      border-radius: 8px;
+    }
+  }
+}
